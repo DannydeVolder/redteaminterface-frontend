@@ -2,8 +2,11 @@
   <v-app-bar fixed flat id="navbar">
       <v-spacer></v-spacer>
     <v-toolbar-title>
+          <router-link to="/" class="homeLink">
               <h3 style="color: red;font-family: 'Press Start 2P', cursive;">Red Team Interface</h3>
+                  </router-link>
     </v-toolbar-title>
+    
  <v-spacer />
   </v-app-bar>
 </template>
@@ -63,5 +66,13 @@ export default {
 
     span {
     font-size: 1.3em;
+    }
+        .homeLink{
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        color: white;
+        text-align: left;
+
     }
 </style>

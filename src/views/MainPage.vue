@@ -18,17 +18,17 @@
                     >
                         <v-spacer>
                         </v-spacer>
-                        <v-btn class="red--text">
+                        <v-btn to="/mock1" class="red--text" style="font-weight: bold">
                             Mock 1: GetHostName
                         </v-btn>
                         <v-spacer>
                         </v-spacer>
-                        <v-btn class="red--text">
+                        <v-btn to="/mock2" class="red--text" style="font-weight: bold">
                             Mock 2
                         </v-btn>
                         <v-spacer>
                         </v-spacer>
-                        <v-btn class="red--text">
+                        <v-btn to="/mock3" class="red--text" style="font-weight: bold">
                             Mock 3
                         </v-btn>
                         <v-spacer>
@@ -46,7 +46,7 @@
                     >
                         <v-spacer>
                         </v-spacer>
-                        <v-btn class="red--text">
+                        <v-btn to="/sshloginattempt" class="red--text" style="font-weight: bold">
                             SSH Login Attempt
                         </v-btn>
 
@@ -65,7 +65,7 @@
                     >
                         <v-spacer>
                         </v-spacer>
-                        <v-btn class="red--text">
+                        <v-btn to="/bufferoverflow" class="red--text" style="font-weight: bold">
                             Buffer Overflow
                         </v-btn>
 
