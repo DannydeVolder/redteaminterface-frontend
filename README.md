@@ -1,4 +1,4 @@
-# redteaminterface-frontend
+# RedteamDashboard-frontend
 
 ## Project setup
 ```
