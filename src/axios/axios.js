@@ -1,7 +1,7 @@
 import axios from 'axios';
-const baseDomain = "http://10.10.1.84:5000";
-const baseURL = `${baseDomain}/api`;
-const resource = "/v1/resources/attacks"
+const baseDomain = "http://localhost:5000";
+const baseURL = `${baseDomain}`;
+const resource = ""
 
 const API = axios.create({
     baseURL
@@ -9,24 +9,24 @@ const API = axios.create({
 
 export default {
 
-    executeGetHostName(){
-        return API.get(`${resource}/gethostname`)
+    executePortScan(){
+        return API.get(`${resource}/NMAP`)
     },
 
-    executeMock2Attack(){
-        return API.get(`${resource}/mock2`)
+    executeSQLI(){
+        return API.get(`${resource}/SQLI`)
     },
 
-    executeMock3Attack(){
-        return API.get(`${resource}/mock3`)
+    executeDDOS(){
+        return API.get(`${resource}/DDOS`)
     },
 
-    executeFreeFloatBOF(){
-        return API.get(`${resource}/bufferoverflow`)
+    executeRansomWare(){
+        return API.get(`${resource}/RANSOMWARE`)
     },
 
     executeSSHBruteForce(){
-        return API.get(`${resource}/SSHLoginAttempts`)
+        return API.get(`${resource}/BRUTEFORCE`)
     },
 
 }

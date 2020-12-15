@@ -5,12 +5,12 @@
             <v-card-title style="font-size: 1.4em;font-weight: bold" class="justify-center" >Attacks to be executed</v-card-title>
 
             <v-card-text style="color: #c7c7c7">
-                Below is a list of attacks that can be performed, separated into levels of severity. Clicking on an attack will take you to a page explaining what the attack does, and where the attack can be executed.
+                Below is a list of attacks that can be executed, separated into phases. 
             </v-card-text>
 
             <v-divider style="width: 80%; margin: 0 auto;"></v-divider>
 
-            <v-card-title style="font-size: 1.2em;font-weight: bold; margin-top: 40px; color: green" class="justify-center" >Low impact</v-card-title>
+            <v-card-title style="font-size: 1.2em;font-weight: bold; margin-top: 40px; color: lightgreen" class="justify-center" >Phase 1: Introduction to the blue team NMAP and Bruteforce</v-card-title>
                 <v-card-text style="width: 50%; margin: 0 auto; margin-bottom: 40px;" >
                     <v-row
                         align="center"
@@ -18,18 +18,13 @@
                     >
                         <v-spacer>
                         </v-spacer>
-                        <v-btn to="/mock1" class="red--text" style="font-weight: bold">
-                            Mock 1: GetHostName
+                        <v-btn to="/nmapattack" class="red--text" style="font-weight: bold">
+                            Attack 1: PortScan (Nmap)
                         </v-btn>
                         <v-spacer>
                         </v-spacer>
-                        <v-btn to="/mock2" class="red--text" style="font-weight: bold">
-                            Mock 2
-                        </v-btn>
-                        <v-spacer>
-                        </v-spacer>
-                        <v-btn to="/mock3" class="red--text" style="font-weight: bold">
-                            Mock 3
+                        <v-btn to="/bruteforce" class="red--text" style="font-weight: bold">
+                            Attack 2: BruteForce (SSH login)
                         </v-btn>
                         <v-spacer>
                         </v-spacer>
@@ -38,7 +33,7 @@
 
             <v-divider style="width: 80%; margin: 0 auto;"></v-divider>
 
-            <v-card-title style="font-size: 1.2em;font-weight: bold; margin-top: 40px; color: orange" class="justify-center" >Medium impact</v-card-title>
+            <v-card-title style="font-size: 1.2em;font-weight: bold; margin-top: 40px; color: orange" class="justify-center" >Phase 2: First real threats?</v-card-title>
                 <v-card-text style="width: 50%; margin: 0 auto; margin-bottom: 40px;" >
                     <v-row
                         align="center"
@@ -46,10 +41,15 @@
                     >
                         <v-spacer>
                         </v-spacer>
-                        <v-btn to="/sshloginattempt" class="red--text" style="font-weight: bold">
-                            SSH Login Attempt
+                        <v-btn to="/sqli" class="red--text" style="font-weight: bold">
+                            Attack 1: SQL Injection
                         </v-btn>
 
+                        <v-spacer>
+                        </v-spacer>
+                        <v-btn to="/ddos" class="red--text" style="font-weight: bold">
+                            Attack 2: DDOS
+                        </v-btn>
                         <v-spacer>
                         </v-spacer>
                     </v-row>
@@ -57,7 +57,7 @@
 
             <v-divider style="width: 80%; margin: 0 auto;"></v-divider>
 
-            <v-card-title style="font-size: 1.2em;font-weight: bold; margin-top: 40px; color: red" class="justify-center" >High impact</v-card-title>
+            <v-card-title style="font-size: 1.2em;font-weight: bold; margin-top: 40px; color: red" class="justify-center" >Phase 3: Something bad is going on…</v-card-title>
                 <v-card-text style="width: 50%; margin: 0 auto; margin-bottom: 40px;" >
                     <v-row
                         align="center"
@@ -65,8 +65,8 @@
                     >
                         <v-spacer>
                         </v-spacer>
-                        <v-btn to="/bufferoverflow" class="red--text" style="font-weight: bold">
-                            Buffer Overflow
+                        <v-btn to="/ransomware" class="red--text" style="font-weight: bold">
+                            Attack 1: RansomWare
                         </v-btn>
 
                         <v-spacer>

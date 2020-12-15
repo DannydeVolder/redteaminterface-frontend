@@ -3,12 +3,11 @@
 
     <v-card style="color: #c7c7c7; width: 95%; margin-top: 60px; margin-left: 2.5%; margin-right: 2.5%;">
 
-            <v-card-title style="font-size: 1.4em;font-weight: bold" class="justify-center" >Buffer Overflow</v-card-title>
+            <v-card-title style="font-size: 1.4em;font-weight: bold" class="justify-center" >Attack 2: DDOS</v-card-title>
 
             <v-card-text style="color: #c7c7c7; font-size: 1.2em; width: 70%; margin: 0 auto">
-                <p>In information security and programming, a buffer overflow, or buffer overrun, is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory locations.</p> 
-                <p>Buffers are areas of memory set aside to hold data, often while moving it from one section of a program to another, or between programs. Buffer overflows can often be triggered by malformed inputs; if one assumes all inputs will be smaller than a certain size and the buffer is created to be that size, then an anomalous transaction that produces more data could cause it to write past the end of the buffer. If this overwrites adjacent data or executable code, this may result in erratic program behavior, including memory access errors, incorrect results, and crashes.</p>
-                <p>By executing this attack, the attacker gains root access on the target server.</p>
+                <p>This attack simulates a DDOS attack against a machine. The results of this attack will show up on the SIEM dashboard.</p>
+                <p>By clicking the "Execute Attack" button, this attack will execute every 5 minutes.</p>
             </v-card-text>
 
             <v-divider style="width: 80%; margin: 0 auto;"></v-divider>
@@ -21,8 +20,11 @@
                     >
                         <v-spacer>
                         </v-spacer>
-                        <v-btn @click="executeAttack()" color="error" class="black--text" style="font-weight: bold; font-size: 1.3em; height: 80px; width: 300px;">
+                        <v-btn v-if="!attackExecuting" @click="executeAttackAndStartTimer()" color="error" class="black--text" style="font-weight: bold; font-size: 1.3em; height: 80px; width: 300px;">
                             EXECUTE ATTACK
+                        </v-btn>
+                        <v-btn v-else @click="stopAttack()" color="error" class="black--text" style="font-weight: bold; font-size: 1.3em; height: 80px; width: 300px;">
+                            STOP ATTACK
                         </v-btn>
                         <v-spacer>
                         </v-spacer>
@@ -52,16 +54,37 @@ import API  from '../axios/axios';
 import { mapState, mapActions } from 'vuex'
 export default {
 
+    data(){
+        return{
+            attackExecuting: false,
+            interval: '',
+        }
+    },
+
     methods:{
         ...mapActions({
             clearAlert: 'alert/clear' 
         }),
 
+        //Executes the attack every 5 minutes. Change the amount of milliseconds to increase/decrease the attack time.
+        executeAttackAndStartTimer(){
+            this.executeAttack();
+            this.interval = '',
+            this.interval = setInterval(function(){
+                this.executeAttack()
+            }, 300000);
+
+        },
+
         executeAttack(){
             try{
-                API.executeFreeFloatBOF().then(response =>{
+                API.executeDDOS().then(response =>{
                     if(response.status === 200){
+                        this.attackExecuting = true;
                         this.$store.dispatch("alert/success", 'Attack executed!')
+                    }
+                    else{
+                        this.$store.dispatch("alert/error", 'Something went wrong.')
                     }
                 });
 
@@ -69,6 +92,27 @@ export default {
             catch(e){
                 console.error(e);
             }
+        },
+
+        stopAttack(){
+            try{
+                API.executeDDOS().then(response =>{
+                    if(response.status === 200){
+                        clearInterval(this.interval);
+                        this.attackExecuting = false;
+                        this.interval = '';
+                        this.$store.dispatch("alert/success", 'Attack has been stopped!')
+                    }
+                    else{
+                        this.$store.dispatch("alert/error", 'Something went wrong.')
+                    }
+                });
+
+            }
+            catch(e){
+                console.error(e);
+            }
+
         }
     },
     

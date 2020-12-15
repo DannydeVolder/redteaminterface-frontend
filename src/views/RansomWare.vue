@@ -3,10 +3,10 @@
 
     <v-card style="color: #c7c7c7; width: 95%; margin-top: 60px; margin-left: 2.5%; margin-right: 2.5%;">
 
-            <v-card-title style="font-size: 1.4em;font-weight: bold" class="justify-center" >Mock 1: GetHostName</v-card-title>
+            <v-card-title style="font-size: 1.4em;font-weight: bold" class="justify-center" >Attack 1: RansomWare</v-card-title>
 
-            <v-card-text style="color: #c7c7c7; font-size: 1.2em;">
-                This attack is a mock attack to show that the system works, and to show that the SIEM can detect attacks.
+            <v-card-text style="color: #c7c7c7; font-size: 1.2em; width: 70%; margin: 0 auto">
+                <p>This attack performs a ransomware attack on a machine. </p>
             </v-card-text>
 
             <v-divider style="width: 80%; margin: 0 auto;"></v-divider>
@@ -57,7 +57,7 @@ export default {
 
         executeAttack(){
             try{
-                API.executeGetHostName().then(response =>{
+                API.executeRansomWare().then(response =>{
                     if(response.status === 200){
                         this.$store.dispatch("alert/success", 'Attack executed!')
                     }

@@ -2,11 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import MainPage from '../views/MainPage.vue'
-import Mock1 from '../views/Mock1.vue'
-import Mock2 from '../views/Mock2.vue'
-import Mock3 from '../views/Mock3.vue'
-import SSHLoginAttempt from '../views/SSHLoginAttempt.vue'
-import BufferOverflow from '../views/BufferOverflow.vue'
+import NmapAttack from '../views/NmapAttack.vue'
+import BruteForce from '../views/BruteForce.vue'
+import SqlInjection from '../views/SqlInjection.vue'
+import DDOS from '../views/DDOS.vue'
+import RansomWare from '../views/RansomWare.vue'
 
 Vue.use(VueRouter)
 
@@ -20,41 +20,33 @@ const routes = [
         component: MainPage,
       },
       {
-        path: '/mock1',
-        name: 'Mock1',
-        component: Mock1,
+        path: '/nmapattack',
+        name: 'NmapAttack',
+        component: NmapAttack,
       },
       {
-        path: '/mock2',
-        name: 'Mock2',
-        component: Mock2,
+        path: '/bruteforce',
+        name: 'BruteForce',
+        component: BruteForce,
       },
       {
-        path: '/mock3',
-        name: 'Mock3',
-        component: Mock3,
+        path: '/sqli',
+        name: 'SqlInjection',
+        component: SqlInjection,
       },
       {
-        path: '/sshloginattempt',
-        name: 'SSHLoginAttempt',
-        component: SSHLoginAttempt,
+        path: '/ddos',
+        name: 'DDOS',
+        component: DDOS,
       },
       {
-        path: '/bufferoverflow',
-        name: 'BufferOverflow',
-        component: BufferOverflow,
+        path: '/ransomware',
+        name: 'RansomWare',
+        component: RansomWare,
       }
     ],
     component: Home
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
 ]
 
 const router = new VueRouter({
