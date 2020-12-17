@@ -62,18 +62,20 @@ export default {
     },
 
     //Executes the attack every 2 minutes. Change the amount of milliseconds to increase/decrease the attack time.
-    executeAttackAndStartTimer(){
-        this.executeAttack();
-        this.interval = '',
-        this.interval = setInterval(function(){
-            this.executeAttack()
-        }, 120000);
-    },
+
 
     methods:{
         ...mapActions({
             clearAlert: 'alert/clear' 
         }),
+
+        executeAttackAndStartTimer(){
+            this.executeAttack();
+            this.interval = '',
+            this.interval = setInterval(function(){
+                this.executeAttack()
+            }, 120000);
+        },
 
         executeAttack(){
             try{
