@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseDomain = "http://localhost:5000";
+const baseDomain = "http://RedteamDashboard.local:5000";
 const baseURL = `${baseDomain}`;
 const resource = ""
 
